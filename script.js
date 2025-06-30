@@ -82,6 +82,8 @@ document.getElementById("red-dice").addEventListener("click", function () {
 
     if (redDiceValue === 6) {
         if (homePieces.length > 0) {
+            alert("Red rolled a 6! You can move a piece out of the home area.🎲");
+
             enableTokenClick("red"); 
             enableBoardPieceMove("red", 6); 
         } else {
@@ -102,7 +104,7 @@ document.getElementById("green-dice").addEventListener("click", function () {
 
     document.querySelectorAll("img")[1].setAttribute("src", greenDiceImage);
     if (greenDiceValue === 6) {
-        alert("Red rolled a 6! You can move a piece out of the home area.🎲");
+        alert("Green rolled a 6! You can move a piece out of the home area.🎲");
         enableTokenClick("green");
     } else {
         // alert("Next player's turn: Blue 💙");
@@ -121,7 +123,7 @@ document.getElementById("blue-dice").addEventListener("click", function () {
     document.querySelectorAll("img")[2].setAttribute("src", blueDiceImage);
     if (blueDiceValue === 6) {
         enableTokenClick("blue");
-        alert("Red rolled a 6! You can move a piece out of the home area.🎲");
+        alert("Blue rolled a 6! You can move a piece out of the home area.🎲");
     }
     else {
         // alert("Next player's turn: Yellow 💛");
@@ -139,7 +141,7 @@ document.getElementById("yellow-dice").addEventListener("click", function () {
 
     document.querySelectorAll("img")[3].setAttribute("src", yellowDiceImage);
     if (yellowDiceValue === 6) {
-        alert("Red rolled a 6! You can move a piece out of the home area.🎲");
+        alert("Yellow rolled a 6! You can move a piece out of the home area.🎲");
         enableTokenClick("yellow");
     } else {
         // alert("Next player's turn: Red ❤️");
