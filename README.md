@@ -35,4 +35,4 @@ This is a browser-based multiplayer **Ludo game**, developed using **HTML**, **C
 
 ---
 
-[Ludo Board Screenshot](images/boardScreenshot.png)
+![Ludo Board Screenshot](images/boardScreenshot.png)
