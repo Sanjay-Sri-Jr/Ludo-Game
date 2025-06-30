@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Moo+Lah+Lah&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --red: #ec1c22;
+    --green: #00a146;
+    --blue: #23affd;
+    --yellow: #f1c40f;
+
+    --backgroung-color: #3b2a92;
+    --board-bg: #f9f9f9;
+    --border-color: #333;
+    --dice-bg: #ffffff;
+    --dice-shadow: rgba(0, 0, 0, 0.1);
+
+    --player-token-size: 30px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--backgroung-color);   
+}
+h1{
+    font-family: 'Bungee Spice', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 2px 8px 500px rgba(0, 0, 0, 0.767);
+    margin-top: 10px;
+}
+.blink {
+    animation: blink-effect 0.7s linear infinite alternate;
+    box-shadow: 0 0 10px 8px #fff, 0 0 40px 16px currentColor;
+}
+
+@keyframes blink-effect {
+    0%   { opacity: 2; }
+    100% { opacity: 0.7; }
+}
+
+/* dice */
+.dice{
+    cursor: pointer;
+}
+.dice h3 {
+    text-align: center;
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    width: 55px;
+    position: absolute;
+    right: 2%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.767);
+    font-style: normal;
+    font-size: 1rem;
+}
+
+.dice img {
+    width: 100%;
+}
+
+/* Red Dice  */
+.red-dice {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 25%;
+    top: 12%;
+    z-index: 10;
+}
+
+
+/* Green Dice */
+.green-dice{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 25%;
+    z-index: 10;
+    top: 12%;
+}
+
+.blue-dice {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 25%;
+    bottom: 10%;
+    z-index: 10;
+}
+
+.yellow-dice {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 25%;
+    bottom: 10%;
+    z-index: 10;
+}
+
+@media(max-width:1120px) {
+    body{
+        background-color: var(--backgroung-color);
+        height: 100vh;
+        position: relative;
+        /* overflow: hidden; */
+    }
+    .dice {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 96%;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+    }
+    .red-dice {
+        left: 10%;
+    }
+    .green-dice {
+        left: 35%;
+    }
+    .blue-dice {
+        left: 60%;
+    }
+    .yellow-dice {
+        left: 85%;
+    }
+    .ludoBoard {
+        bottom: 5%;
+    }
+}
+
+.ludoContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+   
+}
+
+.ludoBoard {
+    position: relative;
+    margin: 0;
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border: 2px solid var(--border-color);
+    background-color: var(--board-bg);
+    display: grid;
+    grid-template-areas:
+        'red-board red-board green-path green-board green-board'
+        'red-board red-board green-path green-board green-board'
+        'red-path red-path win-zone yellow-path yellow-path'
+        'blue-board blue-board blue-path yellow-board yellow-board'
+        'blue-board blue-board blue-path yellow-board yellow-board'
+    ;
+}
+
+#red-board {
+    grid-area: red-board;
+    background-color: var(--red);
+}
+
+#green-board {
+    grid-area: green-board;
+    background-color: var(--green);
+}
+
+#blue-board {
+    grid-area: blue-board;
+    background-color: var(--blue);
+}
+
+#yellow-board {
+    grid-area: yellow-board;
+    background-color: var(--yellow);
+}
+
+#green-path {
+    grid-area: green-path;
+    display: grid;
+}
+
+#red-path {
+    grid-area: red-path;
+    display: grid;
+}
+
+#blue-path {
+    grid-area: blue-path;
+    display: grid;
+}
+
+#yellow-path {
+    grid-area: yellow-path;
+    display: grid;
+}
+
+.win-zone {
+    grid-area: win-zone;
+    display: grid;
+}
+
+.verticalPath {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.horizontalPath {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.board {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--board-bg);
+}
+
+.board div {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: var(--board-bg);
+    align-items: center;
+    justify-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.board div span {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+#red-board div span {
+    background-color: var(--red);
+}
+
+#green-board div span {
+    background-color: var(--green);
+}
+
+#blue-board div span {
+    background-color: var(--blue);
+}
+
+#yellow-board div span {
+    background-color: var(--yellow);
+}
+
+.path {
+    border: 1px solid #959595;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.piece {
+    font-size: 2.8em;
+    /* make icon bigger than the span */
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.28));
+    /* border-radius: 50%; */
+    /* background: #fff; */
+    padding: 0.18em;
+    /* box-shadow: 0 6px 16px 0 rgba(0,0,0,0.22); */
+    /* border: 4px solid #fff; */
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:grab;
+}
+
+.red-piece {
+    color: red;
+    z-index: 3;
+}
+.green-piece {
+    color: green;
+    z-index: 3;
+}
+
+.blue-piece {
+    color: blue;
+    z-index: 3;
+}
+
+.yellow-piece {
+    color: yellow;
+    z-index: 3;
+}
+
+.red-box {
+    background-color: var(--red);
+}
+
+.green-box {
+    background-color: var(--green);
+}
+
+.yellow-box {
+    background-color: var(--yellow);
+}
+
+.blue-box {
+    background-color: var(--blue);
+}
+
+
+.win-zone {
+    /* grid-area: win-zone; */
+    position: relative;
+
+    /* display: block; */
+    /* background: #fff; */
+    /* border: 2px solid #333; */
+    /* min-width: 80px;
+    min-height: 80px; */
+    /* aspect-ratio: 1/1; */
+    /* box-sizing: border-box;
+    overflow: hidden; */
+}
+
+.win-triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    /* z-index: 1; */
+
+}
+
+#win-red {
+    width: 100%;
+    height: 100%;
+ 
+    align-content: center;
+    background: var(--red);
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
+}
+
+#win-green {
+    /* height: 0%; */
+
+    background: var(--green);
+    clip-path: polygon(100% 0, 0 0, 50% 50%);
+    z-index: 2;
+}
+
+#win-yellow {
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    align-content: center;
+
+    background: var(--yellow);
+    clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+}
+
+#win-blue {
+    height: 50%;
+    bottom: 0;
+    /* left: 0; */
+    align-content: center;
+    background: var(--blue);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+

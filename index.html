@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Ludo Board</h1>
+    </header>
+    <div class="ludoContainer">
+        <div class="red-dice dice" id="red-dice">
+            <img src="images/dice_1.png" alt="redDice">
+            <h3 class="player-red">Player Red</h3>
+        </div>
+        <div class="green-dice dice" id="green-dice">
+            <img src="images/dice_1.png" alt="greenDice">
+            <h3 class="player-green">Player Green</h3>
+         </div>
+        <div class="blue-dice dice" id="blue-dice">
+            <img src="images/dice_1.png" alt="blueDice">
+            <h3 class="player-blue">Player Blue</h3>
+        </div>
+        <div class="yellow-dice dice" id="yellow-dice">
+            <img src="images/dice_1.png" alt="yellowDice">
+            <h3 class="player-yellow">Player Yellow</h3>
+        </div>
+        <div class="ludoBoard">
+            <div id="red-board" class="board">
+                <div>
+                    <span><i class="bi bi-geo-alt-fill piece red-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece red-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece red-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece red-piece"></i></span>
+                </div>
+            </div>
+            <div id="green-path" class="verticalPath">
+                <div class="path" id="r11"></div>
+                <div class="path" id="r12"></div>
+                <div class="path" id="r13"></div>
+                <div class="path" id="r10"></div>
+                <div class="path green-box" id="gh1"></div>
+                <div class="path green-box" id="g1"></div>
+                <div class="path" id="r9"></div>
+                <div class="path green-box" id="gh2"></div>
+                <div class="path" id="g2"></div>
+                <div class="path" id="r8"></div>
+                <div class="path green-box" id="gh3"></div>
+                <div class="path" id="g3"></div>
+                <div class="path" id="r7"></div>
+                <div class="path green-box" id="gh4"></div>
+                <div class="path" id="g4"></div>
+                <div class="path" id="r6"></div>
+                <div class="path green-box" id="gh5"></div>
+                <div class="path" id="g5"></div>
+            </div>
+            <div id="green-board" class="board">
+                <div>
+                    <span><i class="bi bi-geo-alt-fill piece green-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece green-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece green-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece green-piece"></i></span>
+                </div>
+            </div>
+            <div id="red-path" class="horizontalPath">
+                <div class="path" id="b13"></div>
+                <div class="path red-box" id="r1"></div>
+                <div class="path" id="r2"></div>
+                <div class="path" id="r3"></div>
+                <div class="path" id="r4"></div>
+                <div class="path" id="r5"></div>
+                <div class="path" id="b12"></div>
+                <div class="path red-box" id="rh1"></div>
+                <div class="path red-box" id="rh2"></div>
+                <div class="path red-box" id="rh3"></div>
+                <div class="path red-box" id="rh4"></div>
+                <div class="path red-box" id="rh5"></div>
+                <div class="path" id="b11"></div>
+                <div class="path" id="b10"></div>
+                <div class="path" id="b9"></div>
+                <div class="path" id="b8"></div>
+                <div class="path" id="b7"></div>
+                <div class="path" id="b6"></div>
+            </div>
+            <div id="win-zone" class="win-zone">
+                <div class="win-triangle red" id="win-red"></div>
+                <div class="win-triangle green" id="win-green"></div>
+                <div class="win-triangle blue" id="win-blue"></div>
+                <div class="win-triangle yellow" id="win-yellow"></div>
+            </div>
+            <div id="yellow-path" class="horizontalPath">
+                <div class="path" id="g6"></div>
+                <div class="path" id="g7"></div>
+                <div class="path" id="g8"></div>
+                <div class="path" id="g9"></div>
+                <div class="path" id="g10"></div>
+                <div class="path" id="g11"></div>
+                <div class="path yellow-box" id="yh5"></div>
+                <div class="path yellow-box" id="yh4"></div>
+                <div class="path yellow-box" id="yh3"></div>
+                <div class="path yellow-box" id="yh2"></div>
+                <div class="path yellow-box" id="yh1"></div>
+                <div class="path" id="g12"></div>
+                <div class="path" id="y5"></div>
+                <div class="path" id="y4"></div>
+                <div class="path" id="y3"></div>
+                <div class="path" id="y2"></div>
+                <div class="path yellow-box" id="y1"></div>
+                <div class="path" id="g13"></div>
+            </div>
+            <div id="blue-board" class="board">
+                <div>
+                    <span><i class="bi bi-geo-alt-fill piece blue-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece blue-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece blue-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece blue-piece"></i></span>
+                </div>
+            </div>
+            <div id="blue-path" class="verticalPath">
+                <div class="path" id="b5"></div>
+                <div class="path blue-box" id="bh5"></div>
+                <div class="path" id="y6"></div>
+                <div class="path" id="b4"></div>
+                <div class="path blue-box" id="bh4"></div>
+                <div class="path" id="y7"></div>
+                <div class="path" id="b3"></div>
+                <div class="path blue-box" id="bh3"></div>
+                <div class="path" id="y8"></div>
+                <div class="path" id="b2"></div>
+                <div class="path blue-box" id="bh2"></div>
+                <div class="path" id="y9"></div>
+                <div class="path blue-box" id="b1"></div>
+                <div class="path blue-box" id="bh1"></div>
+                <div class="path" id="y10"></div>
+                <div class="path" id="y13"></div>
+                <div class="path" id="y12"></div>
+                <div class="path" id="y11"></div>
+            </div>
+            <div id="yellow-board" class="board">
+                <div>
+                    <span><i class="bi bi-geo-alt-fill piece yellow-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece yellow-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece yellow-piece"></i></span>
+                    <span><i class="bi bi-geo-alt-fill piece yellow-piece"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
